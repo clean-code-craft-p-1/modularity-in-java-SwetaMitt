@@ -19,17 +19,13 @@ public final class Main {
     private Main() {
     }
 
-    public static void processBatch(String filename) {
-        TemperatureBatchProcessor.processBatch(filename);
-    }
-
     public static void main(String[] args) {
-        if (!TemperatureTestFileManager.writeTestData(TEST_FILENAME, TEST_DATA)) {
+        if (!SmokeTest.writeSampleFile(TEST_FILENAME, TEST_DATA)) {
             return;
         }
         System.out.println("Created test file: " + TEST_FILENAME);
-        processBatch(TEST_FILENAME);
-        TemperatureTestFileManager.verifySummaryFile(TEST_FILENAME + "_summary.txt");
-        TemperatureTestFileManager.cleanupFiles(TEST_FILENAME);
+        TemperatureBatchProcessor.processBatch(TEST_FILENAME);
+        SmokeTest.verifyGeneratedSummary(TEST_FILENAME + "_summary.txt");
+        SmokeTest.removeArtifacts(TEST_FILENAME);
     }
 }
