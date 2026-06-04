@@ -15,7 +15,7 @@ final class TemperatureAnalysisRunner {
     private TemperatureAnalysisRunner() {
     }
 
-    static void run(String filename, List<TemperatureReading> readings) {
+    static void appendAnalyses(String filename, List<TemperatureReading> readings) {
         List<Analyzer> analyzers = AnalyzerRegistry.all();
         if (analyzers.isEmpty()) {
             return;
