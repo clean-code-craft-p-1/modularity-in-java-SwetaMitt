@@ -5,7 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-class TemperatureFileReader {
+final class TemperatureFileReader {
+
+    private TemperatureFileReader() {
+    }
 
     static List<String> readLines(String filename) {
         try {

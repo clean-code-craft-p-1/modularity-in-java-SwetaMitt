@@ -7,7 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-class TemperatureTestFileManager {
+final class TemperatureTestFileManager {
+
+    private TemperatureTestFileManager() {
+    }
 
     static boolean writeTestData(String testFilename, String[] testData) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(testFilename))) {

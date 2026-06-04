@@ -1,6 +1,6 @@
 package temperature;
 
-public class Main {
+public final class Main {
 
     private static final String TEST_FILENAME = "test_temps.csv";
     private static final String[] TEST_DATA = {
@@ -15,6 +15,9 @@ public class Main {
         "09:19:30,23.2",
         "09:20:00,25.0"
     };
+
+    private Main() {
+    }
 
     public static void processBatch(String filename) {
         TemperatureBatchProcessor.processBatch(filename);
