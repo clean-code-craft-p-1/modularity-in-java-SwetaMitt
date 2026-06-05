@@ -1,6 +1,6 @@
 package temperature;
 
-public final class Main {
+public final class TemperatureApp {
 
     private static final String TEST_FILENAME = "test_temps.csv";
     private static final String[] TEST_DATA = {
@@ -16,7 +16,7 @@ public final class Main {
         "09:20:00,25.0"
     };
 
-    private Main() {
+    private TemperatureApp() {
     }
 
     public static void main(String[] args) {
