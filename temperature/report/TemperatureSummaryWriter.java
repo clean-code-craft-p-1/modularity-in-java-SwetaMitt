@@ -1,15 +1,17 @@
-package temperature;
+package temperature.report;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-final class TemperatureSummaryWriter {
+import temperature.model.BatchSummary;
+
+public final class TemperatureSummaryWriter {
 
     private TemperatureSummaryWriter() {
     }
 
-    static void writeSummaryReport(String filename, BatchSummary s) {
+    public static void writeSummaryReport(String filename, BatchSummary s) {
         String outName = filename + "_summary.txt";
         try (PrintWriter out = new PrintWriter(new FileWriter(outName))) {
             out.println("Temperature Analysis Summary");

@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import temperature.analyze.TemperatureAnalysisRunner;
+import temperature.ingest.TemperatureFileReader;
+import temperature.ingest.TemperatureLineParser;
+import temperature.model.BatchSummary;
+import temperature.model.TemperatureReading;
+import temperature.report.TemperatureSummaryPrinter;
+import temperature.report.TemperatureSummaryWriter;
+
 final class TemperatureBatchProcessor {
 
     private TemperatureBatchProcessor() {

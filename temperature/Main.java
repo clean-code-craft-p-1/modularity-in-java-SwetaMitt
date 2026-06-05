@@ -1,5 +1,7 @@
 package temperature;
 
+import temperature.tests.SmokeTest;
+
 public final class Main {
 
     private static final String TEST_FILENAME = "test_temps.csv";

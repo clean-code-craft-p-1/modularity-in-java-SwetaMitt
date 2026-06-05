@@ -1,4 +1,4 @@
-package temperature;
+package temperature.tests;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,16 +8,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Build-time smoke test: lays down a known fixture, runs the batch
- * processor against it, asserts the summary file contains the expected
- * counts, then removes both files. Used by CI's "Build and Run" job.
+ * Build-time smoke test: writes a known fixture, then verifies and cleans
+ * it up. Used by Main / CI's "Build and Run" job. For unit tests of
+ * individual modules, see the *Test classes alongside this file.
  */
-final class SmokeTest {
+public final class SmokeTest {
 
     private SmokeTest() {
     }
 
-    static boolean writeSampleFile(String fixturePath, String[] sampleLines) {
+    public static boolean writeSampleFile(String fixturePath, String[] sampleLines) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(fixturePath))) {
             for (String line : sampleLines) {
                 writer.println(line);
@@ -29,7 +29,7 @@ final class SmokeTest {
         }
     }
 
-    static void verifyGeneratedSummary(String summaryFile) {
+    public static void verifyGeneratedSummary(String summaryFile) {
         Path summaryPath = Paths.get(summaryFile);
         if (!Files.exists(summaryPath)) {
             return;
@@ -46,7 +46,7 @@ final class SmokeTest {
         }
     }
 
-    static void removeArtifacts(String fixturePath) {
+    public static void removeArtifacts(String fixturePath) {
         try {
             Files.deleteIfExists(Paths.get(fixturePath));
             Files.deleteIfExists(Paths.get(fixturePath + "_summary.txt"));

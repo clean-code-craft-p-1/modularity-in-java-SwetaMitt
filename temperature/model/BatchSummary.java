@@ -1,9 +1,9 @@
-package temperature;
+package temperature.model;
 
 import java.util.Collections;
 import java.util.List;
 
-record BatchSummary(
+public record BatchSummary(
         int totalReadings,
         int validReadings,
         int errors,
@@ -12,9 +12,9 @@ record BatchSummary(
         double avgTemp,
         List<String> badLines) {
 
-    static BatchSummary from(int totalLines,
-                             List<TemperatureReading> readings,
-                             List<String> badLines) {
+    public static BatchSummary from(int totalLines,
+                                    List<TemperatureReading> readings,
+                                    List<String> badLines) {
         List<Double> temps = readings.stream().map(TemperatureReading::value).toList();
         double avg = temps.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
         return new BatchSummary(totalLines, readings.size(), badLines.size(),

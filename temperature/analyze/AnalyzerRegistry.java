@@ -1,4 +1,4 @@
-package temperature;
+package temperature.analyze;
 
 import java.util.List;
 
