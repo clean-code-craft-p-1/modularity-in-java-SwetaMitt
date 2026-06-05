@@ -1,4 +1,4 @@
-package temperature;
+package temperature.analyze;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,7 +7,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-final class TemperatureAnalysisRunner {
+import temperature.model.TemperatureReading;
+
+public final class TemperatureAnalysisRunner {
 
     private static final String SEPARATOR =
             "------------------------------------------------------------";
@@ -15,7 +17,7 @@ final class TemperatureAnalysisRunner {
     private TemperatureAnalysisRunner() {
     }
 
-    static void appendAnalyses(String filename, List<TemperatureReading> readings) {
+    public static void appendAnalyses(String filename, List<TemperatureReading> readings) {
         List<Analyzer> analyzers = AnalyzerRegistry.all();
         if (analyzers.isEmpty()) {
             return;

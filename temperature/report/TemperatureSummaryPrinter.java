@@ -1,11 +1,13 @@
-package temperature;
+package temperature.report;
 
-final class TemperatureSummaryPrinter {
+import temperature.model.BatchSummary;
+
+public final class TemperatureSummaryPrinter {
 
     private TemperatureSummaryPrinter() {
     }
 
-    static void printSummary(BatchSummary s) {
+    public static void printSummary(BatchSummary s) {
         System.out.println("============================================================");
         System.out.println("Temperature Analysis Summary");
         System.out.println("============================================================");

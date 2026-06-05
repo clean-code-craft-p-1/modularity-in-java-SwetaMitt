@@ -19,6 +19,6 @@ jobs:
         java-version: '21'
         
     - name: Build
-      run: javac temperature/TemperatureApp.java
+      run: javac temperature/Main.java
     - name: Verify
-      run: java -ea -classpath . temperature.TemperatureApp
+      run: java -ea -classpath . temperature.Main

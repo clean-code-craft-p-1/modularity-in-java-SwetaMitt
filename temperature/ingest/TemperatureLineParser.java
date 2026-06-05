@@ -1,13 +1,15 @@
-package temperature;
+package temperature.ingest;
 
 import java.util.Optional;
+
+import temperature.model.TemperatureReading;
 
 /**
  * Pure parser: turns a single CSV line into either a valid
  * TemperatureReading or Optional.empty(). Has no side-effects on caller
  * state, so it composes cleanly and is trivial to test.
  */
-final class TemperatureLineParser {
+public final class TemperatureLineParser {
 
     private static final double MIN_PLAUSIBLE_TEMP = -100.0;
     private static final double MAX_PLAUSIBLE_TEMP = 200.0;
@@ -17,7 +19,7 @@ final class TemperatureLineParser {
     private TemperatureLineParser() {
     }
 
-    static Optional<TemperatureReading> parse(String line) {
+    public static Optional<TemperatureReading> parse(String line) {
         String[] parts = line.split(",");
         if (parts.length != EXPECTED_FIELDS) {
             return Optional.empty();

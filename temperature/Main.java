@@ -1,6 +1,8 @@
 package temperature;
 
-public final class TemperatureApp {
+import temperature.tests.SmokeTest;
+
+public final class Main {
 
     private static final String TEST_FILENAME = "test_temps.csv";
     private static final String[] TEST_DATA = {
@@ -16,7 +18,7 @@ public final class TemperatureApp {
         "09:20:00,25.0"
     };
 
-    private TemperatureApp() {
+    private Main() {
     }
 
     public static void main(String[] args) {
